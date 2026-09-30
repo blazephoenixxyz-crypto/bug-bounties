@@ -548,8 +548,6 @@ companies:
   - '*bounty'
   program_type: bounty
   status: active
-  min_payout: 100000
-  max_payout: 6000000
   currency: BZPX
   safe_harbor: full
   allows_disclosure: true
@@ -557,16 +555,25 @@ companies:
   preferred_languages: English, Portuguese
   hall_of_fame_url: https://blazephoenix.xyz/bounty
   legal_terms_url: https://github.com/blazephoenixxyz-crypto/Blaze-Phoenix-Dex/blob/main/SECURITY.md
-  description: Smart-contract bug bounty across two on-chain protocols, an EVM DEX aggregator and a solvency-enforced staking engine, with 40,000,000 BZPX allocated. Rewards are paid in the project's own token, which is not yet liquid, so the programme commits to a quantity of tokens and a schedule rather than to a value; settlement begins after October 2026, though reports are triaged from now. Severity is assessed by the project, with written reasoning where it differs from the reporter's rating.
+  description: Bug bounty across six surfaces, namely an EVM DEX aggregator, a solvency-enforced staking engine, the public API, the MCP server and agent surfaces, the SDK, and the website. Reports are accepted from 25 September to 7 November 2026 (23:59 UTC). Rewards are paid in the project's own token, which is not yet liquid, so the programme commits to a quantity of tokens and a schedule rather than to a value; settlement begins after October 2026, though reports are triaged from now. When several researchers report the same finding before it is fixed and published, one award is paid for that finding and split equally among them. Severity is assessed by the project, with written reasoning where it differs from the reporter's rating.
   scope:
   - target: Solidity contracts of the DEX aggregator (Router, Solver, Hub, Quoter, Core)
     type: other
   - target: Solidity contracts of the staking engine (BlazePhoenixStaking, BlazePhoenixMathLib)
     type: other
+  - target: Public API (blazephoenix.xyz/api)
+    type: api
+  - target: MCP server and agent surfaces (blazephoenix.xyz/mcp, @blazephoenix/mcp)
+    type: other
+  - target: SDK and calldata (@blazephoenix/sdk)
+    type: other
+  - target: Website (blazephoenix.xyz swap, staking and API tabs)
+    type: web
   out_of_scope:
-  - Third-party AMM pools, tokens and bridges the protocol reads from
-  - RPC providers and front-ends
-  - Theoretical concerns without demonstrated impact
+  - Third-party code the protocol reads from, unless our code consumes it unsafely
+  - Findings already fixed and published
+  - Volumetric DoS, load testing and rate-limit exhaustion of the free public API
+  - Theoretical reports without a proof of concept
   excluded_methods:
   - dos
   - social_engineering
