@@ -2879,6 +2879,47 @@ companies:
   standards:
   - ISO 29147
 
+- company: MONETA Money Bank
+  url: https://www.moneta.cz/bug-bounty
+  contact: mailto:bugbounty@moneta.cz
+  rewards:
+  - '*bounty'
+  - '*recognition'
+  program_type: bounty
+  status: active
+  safe_harbor: full
+  preferred_languages: English, Czech, Slovak
+  pgp_key: https://www.moneta.cz/.well-known/monetavulnerabilitypgp.asc
+  description: The Czech bank's own paid bug bounty, covering www.moneta.cz, ib.moneta.cz and the Smart Banka mobile app. Rewards are set per finding by severity and PoC quality, up to 120 EUR for low, 400 EUR for medium and 2,000 EUR for high, paid by bank transfer. Send one bug per email with a reproducible PoC. No test accounts are provided. Lesser findings can still get a Hall of Fame spot. Keep rate-limit tests under 100 requests, and don't share findings without the bank's consent.
+  excluded_methods:
+  - social_engineering
+  - brute_force
+  scope:
+  - target: www.moneta.cz
+    type: web
+  - target: ib.moneta.cz
+    type: web
+  - target: Smart Banka mobile app
+    type: mobile
+  out_of_scope:
+  - Other subdomains of moneta.cz
+  - Vulnerabilities in third-party providers' software
+  - Stolen or leaked client credentials
+  - Hypothetical flaws or best practices without a PoC and attack scenario
+  - Reports from automated tools or scans
+  - Vulnerable or outdated libraries without evidence of exploitability
+  - Missing cookie flags or security headers that don't lead directly to a vulnerability
+  - Self-XSS
+  - Attacks requiring MITM
+  - Brute force attacks
+  max_payout: 2000
+  currency: EUR
+  payout_table:
+    high: 2000
+    medium: 400
+    low: 120
+  hall_of_fame_url: https://www.moneta.cz/hall-of-fame
+
 - company: moneykit.com
   url: https://moneykit.com/bounty
   contact: mailto:security@moneykit.com
@@ -3398,6 +3439,35 @@ companies:
   - phishing
   response_sla_days: 5
   pgp_key: https://advisories.orangecyberdefense.com
+
+- company: ORF
+  url: https://der.orf.at/vdp100.html
+  contact: mailto:ciso@orf.at
+  rewards:
+  - '*recognition'
+  program_type: vdp
+  status: active
+  safe_harbor: partial
+  allows_disclosure: true
+  preferred_languages: English, German
+  description: The Austrian public broadcaster's disclosure policy. Only domains serving a security.txt are in scope, which is currently just orf.at. Email ciso@orf.at with the affected page and the class of bug, but no reproduction details - a secure channel gets set up in the reply, usually within 72 hours. Its funding rules out a paid bounty, but qualifying reports get a company reward and a Hall of Fame spot. ORF won't seek prosecution over good-faith research. Don't go public until ORF confirms a fix.
+  excluded_methods:
+  - dos
+  - social_engineering
+  - phishing
+  - physical_access
+  scope:
+  - target: orf.at
+    type: web
+  out_of_scope:
+  - Services hosted by third-party providers
+  - Domains without a security.txt file
+  - UI and UX bugs and spelling mistakes
+  - Non-exploitable issues and best-practice gaps such as missing security headers
+  - TLS configuration weaknesses
+  - Volumetric issues
+  response_sla_days: 3
+  hall_of_fame_url: https://der.orf.at/vdp100.html#HOF2
 
 - company: Orsted
   url: https://orsted.com/.well-known/vulnerability-disclosure-policy.html
@@ -4578,6 +4648,40 @@ companies:
   swag_details: $200 USD (or equivalent) in platform credit on Simbase,  10 free SIM cards
   requires_account: false
 
+- company: Simply Voting
+  url: https://www.simplyvoting.com/vulnerability-disclosure/
+  contact: mailto:security@simplyvoting.com
+  rewards:
+  - '*recognition'
+  program_type: vdp
+  status: active
+  safe_harbor: full
+  allows_disclosure: true
+  preferred_languages: English, French
+  pgp_key: https://www.simplyvoting.com/pgp-key.txt
+  description: Disclosure policy for the Simply Voting online election platform, covering its Election Manager app, hosted voting sites, APIs and admin systems. Reports go to security@simplyvoting.com, optionally PGP-encrypted. Expect an acknowledgement within 3 business days and triage within 10, with disclosure timing agreed together. There's no paid bounty, though exceptional finds may get a discretionary reward. Clients' election data, voter details and ballots are off limits.
+  excluded_methods:
+  - dos
+  - social_engineering
+  - physical_access
+  scope:
+  - target: www1.simplyvoting.com/manage/
+    type: web
+  - target: Voting websites hosted on Simply Voting infrastructure
+    type: web
+  - target: Simply Voting APIs
+    type: api
+  - target: Simply Voting authentication and administrative systems
+    type: web
+  out_of_scope:
+  - Election data, voter information or ballots belonging to clients
+  - Third-party services and infrastructure
+  - Vulnerabilities in outdated browsers or platforms
+  response_sla_days: 3
+  hall_of_fame_url: https://www.simplyvoting.com/security-acknowledgements/
+  standards:
+  - ISO 29147
+
 - company: Skribble
   url: https://www.skribble.com/security/disclosure
   contact: mailto:security@skribble.com
@@ -5279,6 +5383,36 @@ companies:
   response_sla_days: 1
   testing_policy_url: https://tuturuuu.com/security/policy
   hall_of_fame_url: https://tuturuuu.com/security/bug-bounty
+
+- company: TV 2 Norway
+  url: https://info.tv2.no/info/artikkel/responsible-disclosure-policy
+  contact: mailto:sikkerhet@tv2.no
+  rewards:
+  - '*recognition'
+  program_type: vdp
+  status: active
+  safe_harbor: partial
+  preferred_languages: Norwegian, English
+  pgp_key: https://keys.openpgp.org/vks/v1/by-fingerprint/AADD8146909668B30DCB154D4DED174A3AAE2549
+  description: The Norwegian broadcaster's disclosure policy for the digital services it runs itself, not third-party platforms like Akamai or the big clouds. Reports go to sikkerhet@tv2.no, PGP key available. No money or swag, but the first to report a unique issue that leads to a fix gets a Hall of Fame spot. Only use test accounts you own and stop as soon as you hit personal data. TV 2 won't bring anti-circumvention claims over research within the policy.
+  excluded_methods:
+  - dos
+  out_of_scope:
+  - Third-party platforms and services outside TV 2's control
+  - Clickjacking on pages with no sensitive actions
+  - CSRF on unauthenticated forms or forms with no sensitive actions
+  - Attacks requiring MITM or physical access to a user's device
+  - Known vulnerable libraries without a working proof of concept
+  - CSV injection without a demonstrated vulnerability
+  - Missing best practices in SSL/TLS, Content Security Policy or email (SPF/DKIM/DMARC) setup
+  - Rate limiting or brute force on non-authentication endpoints
+  - Missing HttpOnly or Secure flags on non-sensitive cookies
+  - Issues only affecting outdated browsers
+  - Version disclosure, banner identification and descriptive error messages
+  - Tabnabbing
+  - Open redirects without additional demonstrated impact
+  - Issues requiring unlikely user interaction
+  hall_of_fame_url: https://info.tv2.no/info/artikkel/acknowledgements
 
 - company: Ultrahuman
   url: https://www.ultrahuman.com/security/vulnerability-disclosure-policy/
